@@ -49,7 +49,7 @@ const Home = () => {
     <div className="container-fluid px-4">
       <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/test">RIVER ISLAND</a>
+          <a className="navbar-brand" href="/">RIVER ISLAND</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
