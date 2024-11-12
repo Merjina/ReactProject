@@ -7,9 +7,10 @@ const Home = () => {
   const [data, setData] = useState([]);
   const [likedProducts, setLikedProducts] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState(''); // State to track slide direction
   const itemsPerPage = 3;
 
-  // API call to fetch data
+  // Fetch data from API
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -23,7 +24,7 @@ const Home = () => {
     fetchData();
   }, []);
 
-  // Toggle like status
+  // Toggle product like status
   const toggleLike = (productId) => {
     setLikedProducts((prevLikes) => ({
       ...prevLikes,
@@ -31,18 +32,28 @@ const Home = () => {
     }));
   };
 
-  // Pagination control
+  // Handle pagination with sliding animation
   const handleNext = () => {
     if (currentIndex + itemsPerPage < data.length) {
-      setCurrentIndex(currentIndex + itemsPerPage);
+      setSlideDirection('slide-left'); // Set direction to slide left
+      setCurrentIndex((prevIndex) => prevIndex + itemsPerPage);
     }
   };
 
   const handlePrev = () => {
     if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - itemsPerPage);
+      setSlideDirection('slide-right'); // Set direction to slide right
+      setCurrentIndex((prevIndex) => prevIndex - itemsPerPage);
     }
   };
+
+  // Reset animation class after rendering
+  useEffect(() => {
+    if (slideDirection) {
+      const timer = setTimeout(() => setSlideDirection(''), 500); // Clear animation after it completes
+      return () => clearTimeout(timer);
+    }
+  }, [slideDirection]);
 
   const currentItems = data.slice(currentIndex, currentIndex + itemsPerPage);
 
@@ -58,7 +69,7 @@ const Home = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
-                <a className="nav-link active" href="/test">Women</a>
+                <a className="nav-link active" href="/">Home</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/test">Men</a>
@@ -100,7 +111,8 @@ const Home = () => {
         <h3 className="h5 mb-2">We thought you might like these!</h3>
         <p className="text-secondary small mb-4">Based on your shopping habits...</p>
 
-        <div className="row g-4">
+        {/* Apply animation class conditionally based on slide direction */}
+        <div className={`row g-4 ${slideDirection}`}>
           {currentItems.map((product) => (
             <div key={product.id} className="col-12 col-md-4">
               <div className="position-relative">
