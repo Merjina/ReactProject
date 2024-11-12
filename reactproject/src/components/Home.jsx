@@ -7,6 +7,9 @@ const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerPage = 3;
 
+
+  //API call
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -20,7 +23,7 @@ const Home = () => {
     fetchData();
   }, []);
 
-  // Toggle like status for a product
+  // like status 
   const toggleLike = (productId) => {
     setLikedProducts((prevLikes) => ({
       ...prevLikes,
@@ -106,7 +109,6 @@ const Home = () => {
                     style={{ objectFit: 'contain' }}
                   />
                 </div>
-                {/* Circular like button with color toggle */}
                 <button
                   className="btn btn-light position-absolute top-0 end-0 mt-2 me-2 rounded-circle p-0 d-flex align-items-center justify-content-center"
                   style={{ width: '40px', height: '40px' }}

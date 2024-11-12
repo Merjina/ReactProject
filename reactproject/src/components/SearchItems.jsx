@@ -31,14 +31,14 @@ const SearchItems = () => {
   // Filter the products based on the query
   useEffect(() => {
     if (query === '') {
-      setResults([]); // Reset results when query is empty
+      setResults([]); 
     } else {
       const filteredResults = allProducts.filter(product =>
         product.title.toLowerCase().includes(query.toLowerCase())
       );
       setResults(filteredResults);
     }
-  }, [query, allProducts]); // Re-run when query or allProducts change
+  }, [query, allProducts]); 
 
   const handleSearchChange = (e) => {
     setQuery(e.target.value);
