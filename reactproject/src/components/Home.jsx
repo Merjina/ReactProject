@@ -1,10 +1,9 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { FaSearch, FaShoppingCart, FaUser, FaHeart } from 'react-icons/fa';
-
 const Home = () => {
   const [data, setData] = useState([]);
-  const [likedProducts, setLikedProducts] = useState({}); 
+  const [likedProducts, setLikedProducts] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerPage = 3;
 
@@ -73,7 +72,7 @@ const Home = () => {
               </li>
             </ul>
             <div className="d-flex align-items-center">
-              <a href="/test" className="text-dark me-3">
+              <a href="/search" className="text-dark me-3">
                 <FaSearch />
               </a>
               <a href="/test" className="text-dark me-3">
@@ -100,15 +99,15 @@ const Home = () => {
             <div key={product.id} className="col-12 col-md-4">
               <div className="position-relative">
                 <div className="product-image-container" style={{ height: '300px', overflow: 'hidden' }}>
-                  <img 
-                    src={product.image} 
+                  <img
+                    src={product.image}
                     className="img-fluid w-100 h-100"
                     alt={product.title}
                     style={{ objectFit: 'contain' }}
                   />
                 </div>
                 {/* Circular like button with color toggle */}
-                <button 
+                <button
                   className="btn btn-light position-absolute top-0 end-0 mt-2 me-2 rounded-circle p-0 d-flex align-items-center justify-content-center"
                   style={{ width: '40px', height: '40px' }}
                   onClick={() => toggleLike(product.id)}
@@ -127,13 +126,13 @@ const Home = () => {
           ))}
         </div>
 
-        <button 
+        <button
           className={`btn btn-light rounded-circle position-absolute start-0 top-50 translate-middle-y d-none d-md-block ms-2 ${currentIndex === 0 ? 'disabled' : ''}`}
           onClick={handlePrev}
         >
           &lt;
         </button>
-        <button 
+        <button
           className={`btn btn-light rounded-circle position-absolute end-0 top-50 translate-middle-y d-none d-md-block me-2 ${currentIndex + itemsPerPage >= data.length ? 'disabled' : ''}`}
           onClick={handleNext}
         >
