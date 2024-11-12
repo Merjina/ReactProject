@@ -1,15 +1,14 @@
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { FaSearch, FaShoppingCart, FaUser, FaHeart } from 'react-icons/fa';
+
 const Home = () => {
   const [data, setData] = useState([]);
   const [likedProducts, setLikedProducts] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerPage = 3;
 
-
-  //API call
-
+  // API call to fetch data
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -23,7 +22,7 @@ const Home = () => {
     fetchData();
   }, []);
 
-  // like status 
+  // Toggle like status
   const toggleLike = (productId) => {
     setLikedProducts((prevLikes) => ({
       ...prevLikes,
@@ -31,6 +30,7 @@ const Home = () => {
     }));
   };
 
+  // Pagination control
   const handleNext = () => {
     if (currentIndex + itemsPerPage < data.length) {
       setCurrentIndex(currentIndex + itemsPerPage);
@@ -47,6 +47,7 @@ const Home = () => {
 
   return (
     <div className="container-fluid px-4">
+      {/* Navbar */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">RIVER ISLAND</a>
@@ -89,6 +90,7 @@ const Home = () => {
         </div>
       </nav>
 
+      {/* Product Display Section */}
       <div className="py-3">
         <small className="text-secondary">{data.length} products</small>
       </div>
