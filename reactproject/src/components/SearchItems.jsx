@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {FaShoppingCart, FaUser } from 'react-icons/fa';
 
 const SearchItems = () => {
-  // State for the search query and search results
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [allProducts, setAllProducts] = useState([]); // To store all products
+  const [allProducts, setAllProducts] = useState([]);
 
-  // Fetch all products from the API
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
       setError('');
       try {
         const response = await axios.get('https://fakestoreapi.com/products');
-        setAllProducts(response.data); // Store all products in state
+        setAllProducts(response.data);
       } catch (err) {
         setError('Error fetching products');
         console.error(err);
@@ -28,38 +27,84 @@ const SearchItems = () => {
     fetchProducts();
   }, []);
 
-  // Filter the products based on the query
   useEffect(() => {
     if (query === '') {
-      setResults([]); 
+      setResults([]);
     } else {
       const filteredResults = allProducts.filter(product =>
         product.title.toLowerCase().includes(query.toLowerCase())
       );
       setResults(filteredResults);
     }
-  }, [query, allProducts]); 
+  }, [query, allProducts]);
 
   const handleSearchChange = (e) => {
     setQuery(e.target.value);
   };
 
   return (
-    <div className="container mt-4">
-      {/* Search bar */}
-      <div className="search-bar mb-4">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Search for products..."
-          value={query}
-          onChange={handleSearchChange}
-        />
-      </div>
+    <div className="container-fluid px-4">
+      {/* Navbar with integrated search bar */}
+      <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="/">MARKET NEST</a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav mx-auto">
+              <li className="nav-item">
+                <a className="nav-link active" href="/">Home</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/men">Men</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/girls">Girls</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/boys">Boys</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/holiday">Holiday Shop</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/inspiration">Inspiration</a>
+              </li>
+            </ul>
+            {/* Search bar in navbar */}
+            <form className="d-flex me-3" style={{ flex: '1', maxWidth: '300px' }}>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Search for products..."
+                value={query}
+                onChange={handleSearchChange}
+              />
+            </form>
+            <div className="d-flex align-items-center">
+              <a href="/cart" className="text-dark me-3">
+                <FaShoppingCart />
+              </a>
+              <a href="/account" className="text-dark">
+                <FaUser />
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
 
       {loading && <div>Loading...</div>}
       {error && <div className="alert alert-danger">{error}</div>}
-      
+
       {/* Display Search Results */}
       <div className="search-results">
         {results.length > 0 ? (
@@ -71,7 +116,7 @@ const SearchItems = () => {
                     src={product.image} 
                     className="card-img-top" 
                     alt={product.title}
-                    style={{ height: '200px', objectFit: 'contain', padding: '10px' }} // Image size adjustment
+                    style={{ height: '200px', objectFit: 'contain', padding: '10px' }}
                   />
                   <div className="card-body d-flex flex-column">
                     <h5 className="card-title">{product.title}</h5>
