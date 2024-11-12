@@ -115,12 +115,6 @@ const Home = () => {
               <div className="mt-2">
                 <div className="small text-truncate">{product.title}</div>
                 <div className="fw-bold mt-1">Fr. {product.price.toFixed(2)}</div>
-                {product.id === currentItems[2]?.id && (
-                  <div className="mt-2">
-                    <span className="bg-white border rounded-circle d-inline-block me-1" style={{width: '12px', height: '12px'}}></span>
-                    <span className="bg-secondary rounded-circle d-inline-block" style={{width: '12px', height: '12px'}}></span>
-                  </div>
-                )}
               </div>
             </div>
           ))}
