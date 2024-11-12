@@ -76,7 +76,7 @@ const SearchItems = () => {
                   <div className="card-body d-flex flex-column">
                     <h5 className="card-title">{product.title}</h5>
                     <p className="card-text">Fr. {product.price}</p>
-                    <button className="btn btn-primary mt-auto">View Details</button>
+                    <button className="btn btn-dark mt-auto">View Details</button>
                   </div>
                 </div>
               </div>
