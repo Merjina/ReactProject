@@ -57,7 +57,7 @@ const Home = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
-                <a className="nav-link active" href="/test">Women</a>
+                <a className="nav-link active" href="/test">Home</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/test">Men</a>
