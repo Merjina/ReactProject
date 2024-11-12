@@ -1,13 +1,13 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { FaSearch, FaShoppingCart, FaUser } from 'react-icons/fa';
+import { FaSearch, FaShoppingCart, FaUser, FaHeart } from 'react-icons/fa';
+
 const Home = () => {
-  // State for storing API data and current page
   const [data, setData] = useState([]);
+  const [likedProducts, setLikedProducts] = useState({}); 
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerPage = 3;
 
-  // API fetch using useEffect
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -21,7 +21,14 @@ const Home = () => {
     fetchData();
   }, []);
 
-  // Handle next and previous
+  // Toggle like status for a product
+  const toggleLike = (productId) => {
+    setLikedProducts((prevLikes) => ({
+      ...prevLikes,
+      [productId]: !prevLikes[productId],
+    }));
+  };
+
   const handleNext = () => {
     if (currentIndex + itemsPerPage < data.length) {
       setCurrentIndex(currentIndex + itemsPerPage);
@@ -34,12 +41,10 @@ const Home = () => {
     }
   };
 
-  // Get current items
   const currentItems = data.slice(currentIndex, currentIndex + itemsPerPage);
 
   return (
     <div className="container-fluid px-4">
-      {/* Navbar */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
         <div className="container-fluid">
           <a className="navbar-brand" href="/test">RIVER ISLAND</a>
@@ -82,17 +87,14 @@ const Home = () => {
         </div>
       </nav>
 
-      {/* Product Count */}
       <div className="py-3">
         <small className="text-secondary">{data.length} products</small>
       </div>
 
-      {/* Recommendation Section */}
       <div className="mb-4 position-relative">
         <h3 className="h5 mb-2">We thought you might like these!</h3>
         <p className="text-secondary small mb-4">Based on your shopping habits...</p>
 
-        {/* Product Grid */}
         <div className="row g-4">
           {currentItems.map((product) => (
             <div key={product.id} className="col-12 col-md-4">
@@ -105,8 +107,13 @@ const Home = () => {
                     style={{ objectFit: 'contain' }}
                   />
                 </div>
-                <button className="btn btn-light position-absolute top-0 end-0 mt-2 me-2 rounded-circle p-2">
-                  ♡
+                {/* Circular like button with color toggle */}
+                <button 
+                  className="btn btn-light position-absolute top-0 end-0 mt-2 me-2 rounded-circle p-0 d-flex align-items-center justify-content-center"
+                  style={{ width: '40px', height: '40px' }}
+                  onClick={() => toggleLike(product.id)}
+                >
+                  <FaHeart style={{ fontSize: '1.2rem', color: likedProducts[product.id] ? 'red' : 'gray' }} />
                 </button>
                 <span className="position-absolute bottom-0 start-0 mb-2 ms-2 bg-dark text-white px-2 py-1 small">
                   TRENDING
@@ -120,7 +127,6 @@ const Home = () => {
           ))}
         </div>
 
-        {/* Navigation Arrows */}
         <button 
           className={`btn btn-light rounded-circle position-absolute start-0 top-50 translate-middle-y d-none d-md-block ms-2 ${currentIndex === 0 ? 'disabled' : ''}`}
           onClick={handlePrev}
@@ -135,7 +141,6 @@ const Home = () => {
         </button>
       </div>
 
-      {/* Optional: Pagination Indicator */}
       <div className="text-center mt-3">
         <small className="text-muted">
           Showing {currentIndex + 1}-{Math.min(currentIndex + itemsPerPage, data.length)} of {data.length} products
