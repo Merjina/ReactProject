@@ -81,7 +81,7 @@ const Home = () => {
                 <a className="nav-link" href="/test">Boys</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/test">Holiday Shop</a>
+                <a className="nav-link" href="/Contact">Contact us</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/test">Inspiration</a>
