@@ -45,8 +45,9 @@ const SearchItems = () => {
   };
 
   return (
-    <div className="container">
-      <div className="search-bar mt-4 mb-4">
+    <div className="container mt-4">
+      {/* Search bar */}
+      <div className="search-bar mb-4">
         <input
           type="text"
           className="form-control"
@@ -59,17 +60,23 @@ const SearchItems = () => {
       {loading && <div>Loading...</div>}
       {error && <div className="alert alert-danger">{error}</div>}
       
+      {/* Display Search Results */}
       <div className="search-results">
         {results.length > 0 ? (
-          <div className="row">
+          <div className="row g-4">
             {results.map((product) => (
-              <div key={product.id} className="col-12 col-md-4 mb-4">
-                <div className="card">
-                  <img src={product.image} className="card-img-top" alt={product.title} />
-                  <div className="card-body">
+              <div key={product.id} className="col-12 col-sm-6 col-md-4 mb-4">
+                <div className="card h-100">
+                  <img 
+                    src={product.image} 
+                    className="card-img-top" 
+                    alt={product.title}
+                    style={{ height: '200px', objectFit: 'contain', padding: '10px' }} // Image size adjustment
+                  />
+                  <div className="card-body d-flex flex-column">
                     <h5 className="card-title">{product.title}</h5>
                     <p className="card-text">Fr. {product.price}</p>
-                    <button className="btn btn-primary">View Details</button>
+                    <button className="btn btn-primary mt-auto">View Details</button>
                   </div>
                 </div>
               </div>
