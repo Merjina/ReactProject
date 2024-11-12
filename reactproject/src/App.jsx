@@ -4,12 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Test from './components/Test';
 import SearchItems from './components/SearchItems';
-<<<<<<< HEAD
 import Inspiration from './components/Inspiration';
+import './styles/style.css';
 
-=======
-import './styles/style.css'
->>>>>>> 709ca6022c69854ce6290f1eeac95044996b056b
 
 
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import './About.css';
 import about from './about.jpg';
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
 
 
