@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaSearch, FaShoppingCart, FaUser, FaHeart } from 'react-icons/fa';
+import '../styles/style.css';
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -130,14 +131,17 @@ const Home = () => {
                 >
                   <FaHeart style={{ fontSize: '1.2rem', color: likedProducts[product.id] ? 'red' : 'gray' }} />
                 </button>
-                <span className="position-absolute bottom-0 start-0 mb-2 ms-2 bg-dark text-white px-2 py-1 small">
-                  TRENDING
-                </span>
               </div>
               <div className="mt-2">
-                <div className="small text-truncate">{product.title}</div>
-                <div className="fw-bold mt-1">Fr. {product.price.toFixed(2)}</div>
-              </div>
+                <div className="small fw-bold text-truncate text-center mt-3">{product.title}</div>
+                <div className="small fw-light m-2" style={{ minHeight: '60px', color: '#212529' }}>
+                  {product.description.split(' ').length > 20 
+                    ? product.description.split(' ').slice(0, 25).join(' ') + '...' 
+                    : product.description}
+                </div>
+                <div className="fw-bold mt-2 ms-2 text-start">Fr. {product.price.toFixed(2)}</div>
+                <button className="button-hover-effect">Add to cart</button>
+                </div>
             </div>
           ))}
         </div>
