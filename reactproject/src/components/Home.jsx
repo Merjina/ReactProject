@@ -4,7 +4,7 @@ function Home() {
   return (
     <div>
 
-        <h1 className='text-center'>this is a head</h1>
+      <h1 className='text-center'>theme</h1>
 
     </div>
   )
