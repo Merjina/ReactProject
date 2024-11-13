@@ -8,7 +8,7 @@ const Home = () => {
   const [likedProducts, setLikedProducts] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideDirection, setSlideDirection] = useState(''); // State to track slide direction
-  const itemsPerPage = 3;
+  const itemsPerPage = 6;
 
   // Fetch data from API
   useEffect(() => {
