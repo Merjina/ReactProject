@@ -84,7 +84,7 @@ const Home = () => {
                 <a className="nav-link" href="/test">Holiday Shop</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/test">Inspiration</a>
+                <a className="nav-link" href="/about">Inspiration</a>
               </li>
             </ul>
             <div className="d-flex align-items-center">
@@ -94,7 +94,7 @@ const Home = () => {
               <a href="/test" className="text-dark me-3">
                 <FaShoppingCart />
               </a>
-              <a href="/test" className="text-dark">
+              <a href="/login" className="text-dark">
                 <FaUser />
               </a>
             </div>
