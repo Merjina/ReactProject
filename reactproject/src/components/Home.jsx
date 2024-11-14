@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { FaSearch, FaShoppingCart, FaUser, FaHeart } from 'react-icons/fa';
+import Cart from './Cart'
 import '../styles/style.css';
 
+
+
 const Home = () => {
+  const navigate=useNavigate();
   const [data, setData] = useState([]);
   const [likedProducts, setLikedProducts] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [cart,setCart]=useState([])
   const [slideDirection, setSlideDirection] = useState(''); // State to track slide direction
   const itemsPerPage = 3;
 
@@ -54,6 +60,11 @@ const Home = () => {
       return () => clearTimeout(timer);
     }
   }, [slideDirection]);
+  const addtocart=(product)=>{
+    setCart([...cart,product]);
+   }
+   const togglecart = () => navigate('/cart', { state: { cart } });
+
 
   const currentItems = data.slice(currentIndex, currentIndex + itemsPerPage);
 
@@ -91,8 +102,11 @@ const Home = () => {
               <a href="/search" className="text-dark me-3">
                 <FaSearch />
               </a>
-              <a href="/test" className="text-dark me-3">
+              <a href="/cart" className="text-dark me-3" onClick={togglecart}>
                 <FaShoppingCart />
+                {cart.length > 0 &&(
+                  <span className='cart-count'>{cart.length}</span>
+                )}
               </a>
               <a href="/test" className="text-dark">
                 <FaUser />
@@ -140,7 +154,7 @@ const Home = () => {
                     : product.description}
                 </div>
                 <div className="fw-bold mt-2 ms-2 text-start">Fr. {product.price.toFixed(2)}</div>
-                <button className="button-hover-effect">Add to cart</button>
+                <button className="button-hover-effect" onClick={()=>addtocart(product)}>Add to cart</button>
                 </div>
             </div>
           ))}
