@@ -6,6 +6,9 @@ import Test from './components/Test';
 import SearchItems from './components/SearchItems';
 import './styles/style.css'
 import Category from './components/Category';
+import Contact from './components/Contact';
+import Inspiration from './components/Inspiration';
+import Cart from './components/Cart';
 
 function App() {
   return (
@@ -23,6 +26,19 @@ function App() {
           </Routes>
         </div>
       </Router>
+        <Router>
+      <div>
+        {/* Define Routes */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/test" element={    <Test/>} />
+          <Route path="/search" element={    <SearchItems/>} />
+          <Route path="/contact" element={ <Contact/>} />
+          <Route path="/about" element={    <Inspiration/>} />
+          <Route path="/cart" element={<Cart/>}/>
+        </Routes>
+      </div>
+    </Router>
 
     </div>
 
