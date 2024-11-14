@@ -84,7 +84,7 @@ const Home = () => {
                 <a className="nav-link" href="/Contact">Contact us</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/test">Inspiration</a>
+                <a className="nav-link" href="/about">Inspiration</a>
               </li>
             </ul>
             <div className="d-flex align-items-center">

@@ -6,6 +6,7 @@ import Test from './components/Test';
 import SearchItems from './components/SearchItems';
 import './styles/style.css'
 import Contact from './components/Contact';
+import Inspiration from './components/Inspiration';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           <Route path="/test" element={    <Test/>} />
           <Route path="/search" element={    <SearchItems/>} />
           <Route path="/contact" element={ <Contact/>} />
-          
+          <Route path="/about" element={    <Inspiration/>} />
         </Routes>
       </div>
     </Router>
