@@ -5,7 +5,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Test from './components/Test';
 import SearchItems from './components/SearchItems';
 import Inspiration from './components/Inspiration';
+<<<<<<< HEAD
 import Login from './components/Login';
+=======
+>>>>>>> 1d4b6f175ad7e79d44b30019766118219ecf5d80
 import './styles/style.css';
 
 
