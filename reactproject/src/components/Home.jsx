@@ -3,6 +3,7 @@ import axios from 'axios';
 import { FaSearch, FaShoppingCart, FaUser, FaHeart } from 'react-icons/fa';
 import '../styles/style.css';
 
+
 const Home = () => {
   const [data, setData] = useState([]);
   const [likedProducts, setLikedProducts] = useState({});
@@ -71,14 +72,23 @@ const Home = () => {
               <li className="nav-item">
                 <a className="nav-link active" href="/">Home</a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/test">Men</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/test">Girls</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/test">Boys</a>
+              {/* Dropdown Menu for Categories */}
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="categoriesDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Categories
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="categoriesDropdown">
+                  <li><a className="dropdown-item" href="/category/men">Men</a></li>
+                  <li><a className="dropdown-item" href="/category/girls">Girls</a></li>
+                  <li><a className="dropdown-item" href="/category/boys">Boys</a></li>
+                </ul>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/test">Holiday Shop</a>
@@ -135,13 +145,13 @@ const Home = () => {
               <div className="mt-2">
                 <div className="small fw-bold text-truncate text-center mt-3">{product.title}</div>
                 <div className="small fw-light m-2" style={{ minHeight: '60px', color: '#212529' }}>
-                  {product.description.split(' ').length > 20 
-                    ? product.description.split(' ').slice(0, 25).join(' ') + '...' 
+                  {product.description.split(' ').length > 20
+                    ? product.description.split(' ').slice(0, 25).join(' ') + '...'
                     : product.description}
                 </div>
                 <div className="fw-bold mt-2 ms-2 text-start">Fr. {product.price.toFixed(2)}</div>
                 <button className="button-hover-effect">Add to cart</button>
-                </div>
+              </div>
             </div>
           ))}
         </div>
