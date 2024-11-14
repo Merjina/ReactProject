@@ -15,24 +15,13 @@ function App() {
 
     <div>
       <Router>
-        <div>
-          {/* Define Routes */}
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/test" element={<Test />} />
-            <Route path="/search" element={<SearchItems />} />
-            <Route path="/category/:category" element={<Category />} />
-
-          </Routes>
-        </div>
-      </Router>
-        <Router>
       <div>
         {/* Define Routes */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/test" element={    <Test/>} />
           <Route path="/search" element={    <SearchItems/>} />
+           <Route path="/category/:category" element={<Category />} />
           <Route path="/contact" element={ <Contact/>} />
           <Route path="/about" element={    <Inspiration/>} />
           <Route path="/cart" element={<Cart/>}/>
