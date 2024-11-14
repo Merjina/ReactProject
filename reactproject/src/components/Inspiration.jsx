@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import './About.css';
-import about from './about.jpg';
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
-
+import './About.css';
+import aboutimg4 from './aboutimg4.jpg';
+import aboutimg3 from './aboutimg3.webp';
+import { FaHandshake } from 'react-icons/fa';
+import { FaUsers } from 'react-icons/fa';
+import { PiX } from "react-icons/pi";
 
 
 
@@ -10,17 +13,15 @@ import { Container, Row, Col, Card, Button } from "react-bootstrap";
 const Inspiration = () => {
   return (
     <Container className="about-us-section my-5">
-      <h1 className="text-center mb-4">About Us</h1>
+      <h1 className="text-center mb-4 text-uppercase fw-bold fst-italic">About Us</h1>
       <Row className="align-items-center mb-5">
-        <Col md={6}>
+        
           <img
-            src={about}
+            src={aboutimg3}
             alt="About Us"
             className="img-fluid rounded"
           />
-        </Col>
-        <Col md={6}>
-          <h2>Welcome to Market Nest - Your One-Stop Online Fashion Destination! 🛍️</h2>
+       <h2>Welcome to Market Nest - Your One-Stop Online Fashion Destination! 🛍️</h2>
           <p> <br />
             At <strong>Market Nest</strong>, we aim to provide an exceptional online shopping experience by offering a wide range of high-quality products at competitive prices. Our platform is designed to make shopping easy, convenient, and enjoyable for all our customers.
           </p>
@@ -28,18 +29,24 @@ const Inspiration = () => {
             From the latest fashion trends to the most innovative gadgets, our collection is curated with you in mind. We are committed to delivering top-notch customer service and fast, reliable shipping.
           </p>
           
-        </Col>
+        
       </Row>
 
-      <h2 className="text-center mb-4">Our Story</h2>
+      
+
+      
+
+     
+      
       <Row className="mb-5">
-        <Col md={12}>
-          <Card className="p-4 shadow-sm">
+       <Col md={12}>
+        <h2 className="text-center mb-4">Our Mission <FaHandshake className="fs-1 text-dark mb-2" /></h2>
+          <Card className="p-4 shadow-sm  about-us-mission">
             <Card.Body>
               <Card.Text>
-              Founded in 2024, Market Nest started with a simple idea: to make fashion accessible, affordable, and enjoyable for everyone. 
-              We began as a small online store with a passion for fashion and a vision to revolutionize the shopping experience.
-               Over the years, we have grown into a vibrant online marketplace, serving customers from all over the country.
+              Our mission is simple: To bring style and convenience to your fingertips.
+               We aim to make online shopping a delightful experience by offering a wide range of products,
+                secure payment options, and fast delivery.
               </Card.Text>
             </Card.Body>
           </Card>
@@ -63,33 +70,33 @@ const Inspiration = () => {
           </Card>
         </Col>
       </Row>
+ 
+     
 
-
-      <h2 className="text-center mb-4">Our Mission</h2>
+      <h2 className="text-center mb-4">Join Our Community <FaUsers className="fs-1 text-dark mb-2" /></h2>
       <Row className="mb-5">
-        <Col md={12}>
+      <Col md={6}>
           <Card className="p-4 shadow-sm">
             <Card.Body>
               <Card.Text>
-              Our mission is simple: To bring style and convenience to your fingertips.
-               We aim to make online shopping a delightful experience by offering a wide range of products,
-                secure payment options, and fast delivery.
+              <img
+               src={aboutimg4}
+              alt="About Us"
+              width={500}
+              height={200}
+              className="img-fluid rounded"
+             />
+                
               </Card.Text>
             </Card.Body>
           </Card>
         </Col>
-      </Row>
 
-      
- 
-     
-
-      <h2 className="text-center mb-4">Join Our Community</h2>
-      <Row className="mb-5">
-        <Col md={12}>
+        <Col md={6}>
           <Card className="p-4 shadow-sm">
             <Card.Body>
               <Card.Text>
+                <br /><br /><br />
                 
                 We love connecting with our customers! Follow us on Instagram, Facebook,
                 and Twitter to stay updated with the latest trends, exclusive offers, and style inspiration. 
@@ -98,6 +105,7 @@ const Inspiration = () => {
                 Thank you for choosing Market Nest. We look forward to serving you and making your shopping experience unforgettable.
 <br /><br /><br />
                 Happy Shopping! 🛒✨
+                <br /><br /><br /><br /><br /><br /><br />
               </Card.Text>
             </Card.Body>
           </Card>
