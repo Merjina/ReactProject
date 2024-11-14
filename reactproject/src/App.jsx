@@ -4,7 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Test from './components/Test';
 import SearchItems from './components/SearchItems';
-import './styles/style.css'
+import Inspiration from './components/Inspiration';
+import './styles/style.css';
+
+
+
 
 function App() {
   return (
@@ -17,7 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/test" element={    <Test/>} />
           <Route path="/search" element={    <SearchItems/>} />
-          
+          <Route path="/about" element={    <Inspiration/>} />
         </Routes>
       </div>
     </Router>
