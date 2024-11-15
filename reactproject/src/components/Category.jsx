@@ -23,7 +23,6 @@ const Category = () => {
 
   // Map URL category names to API category names
   const categoryMap = {
-    men: ["men's clothing"],
     girls: ["women's clothing", "jewelery"], // Girls includes both categories
     boys: ["men's clothing"] // Example; adjust if needed to match actual categories
   };

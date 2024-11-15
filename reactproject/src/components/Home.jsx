@@ -93,7 +93,6 @@ const Home = () => {
                   Categories
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="categoriesDropdown">
-                  <li><a className="dropdown-item" href="/category/men">Men</a></li>
                   <li><a className="dropdown-item" href="/category/girls">Girls</a></li>
                   <li><a className="dropdown-item" href="/category/boys">Boys</a></li>
                 </ul>
