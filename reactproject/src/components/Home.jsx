@@ -114,7 +114,7 @@ const Home = () => {
                   <span className='cart-count'>{cart.length}</span>
                 )}
               </a>
-              <a href="/test" className="text-dark">
+              <a href="/login" className="text-dark">
                 <FaUser />
               </a>
             </div>
