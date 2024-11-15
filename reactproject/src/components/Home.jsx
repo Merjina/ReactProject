@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { FaSearch, FaShoppingCart, FaUser, FaHeart } from 'react-icons/fa';
+import Cart from './Cart'
 import '../styles/style.css';
 
 const Home = () => {
+  const navigate=useNavigate();
   const [data, setData] = useState([]);
   const [likedProducts, setLikedProducts] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [cart,setCart]=useState([])
   const [slideDirection, setSlideDirection] = useState(''); // State to track slide direction
-  const itemsPerPage = 3;
+  const itemsPerPage = 6;
 
   // Fetch data from API
   useEffect(() => {
@@ -54,6 +58,11 @@ const Home = () => {
       return () => clearTimeout(timer);
     }
   }, [slideDirection]);
+  const addtocart=(product)=>{
+    setCart([...cart,product]);
+   }
+   const togglecart = () => navigate('/cart', { state: { cart } });
+
 
   const currentItems = data.slice(currentIndex, currentIndex + itemsPerPage);
 
@@ -71,17 +80,25 @@ const Home = () => {
               <li className="nav-item">
                 <a className="nav-link active" href="/">Home</a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/test">Men</a>
+              {/* Dropdown Menu for Categories */}
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="categoriesDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Categories
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="categoriesDropdown">
+                  <li><a className="dropdown-item" href="/category/girls">Girls</a></li>
+                  <li><a className="dropdown-item" href="/category/boys">Boys</a></li>
+                </ul>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/test">Girls</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/test">Boys</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/test">Holiday Shop</a>
+                <a className="nav-link" href="/Contact">Contact us</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/about">Inspiration</a>
@@ -91,8 +108,11 @@ const Home = () => {
               <a href="/search" className="text-dark me-3">
                 <FaSearch />
               </a>
-              <a href="/test" className="text-dark me-3">
+              <a href="/cart" className="text-dark me-3" onClick={togglecart}>
                 <FaShoppingCart />
+                {cart.length > 0 &&(
+                  <span className='cart-count'>{cart.length}</span>
+                )}
               </a>
               <a href="/login" className="text-dark">
                 <FaUser />
@@ -135,13 +155,15 @@ const Home = () => {
               <div className="mt-2">
                 <div className="small fw-bold text-truncate text-center mt-3">{product.title}</div>
                 <div className="small fw-light m-2" style={{ minHeight: '60px', color: '#212529' }}>
-                  {product.description.split(' ').length > 20 
-                    ? product.description.split(' ').slice(0, 25).join(' ') + '...' 
+                  {product.description.split(' ').length > 20
+                    ? product.description.split(' ').slice(0, 25).join(' ') + '...'
                     : product.description}
                 </div>
                 <div className="fw-bold mt-2 ms-2 text-start">Fr. {product.price.toFixed(2)}</div>
-                <button className="button-hover-effect">Add to cart</button>
+
+                <button className="button-hover-effect" onClick={()=>addtocart(product)}>Add to cart</button>
                 </div>
+
             </div>
           ))}
         </div>
