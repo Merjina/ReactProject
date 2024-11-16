@@ -1,5 +1,5 @@
 .button-hover-effect {
-  background-color: rgb(234, 234, 28); 
+  background-color: rgb(131, 167, 226); 
   color: black;
   margin-top: 5px;            
   padding: 10px;       
@@ -9,13 +9,20 @@
   transition: background-color 0.3s ease; 
   text-align: center;
   width: 25%;              
-  height: auto;            
+  height: auto; 
+  
+             
 }
+.parent-container {
+  display: flex;
+  justify-content: center;
+}
+
 
 
 /* Hover effect */
 .button-hover-effect:hover {
-  background-color: #fcff53; 
+  background-color: #afbb3e; 
 }
 
 /* Slide left animation */
@@ -211,4 +218,60 @@ button.btn {
   border-radius: 10px;
   background-color: #ffffff;
   padding: 30px;
+}
+/* Heading Section Styling */
+.section-heading {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 10px;
+  position: relative;
+}
+
+/* Animated Gradient Text */
+.section-heading h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #FF416C, #FF4B2B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 3s infinite;
+}
+
+/* Subtitle Styling */
+.section-heading p {
+  font-size: 1rem;
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* Gradient Animation */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Logo Icon Styling */
+.logo-icon {
+  font-size: 1.8rem;
+  color: #007bff; /* Customize the color of the icon */
+}
+
+/* Brand Name Styling */
+.brand-name {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #333;
+  letter-spacing: 0.5px;
+}
+
+/* Hover Effect */
+.navbar-brand:hover .logo-icon {
+  color: #FF416C; /* Change icon color on hover */
 }
