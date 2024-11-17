@@ -94,7 +94,7 @@ const SearchItems = () => {
               <a href="/cart" className="text-dark me-3">
                 <FaShoppingCart />
               </a>
-              <a href="/account" className="text-dark">
+              <a href="/login" className="text-dark">
                 <FaUser />
               </a>
             </div>
