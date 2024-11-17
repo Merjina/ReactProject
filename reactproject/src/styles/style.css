@@ -275,3 +275,16 @@ button.btn {
 .navbar-brand:hover .logo-icon {
   color: #FF416C; /* Change icon color on hover */
 }
+
+/* Wishlist */
+.wishlist-count {
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  padding: 2px 6px;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+}
+
