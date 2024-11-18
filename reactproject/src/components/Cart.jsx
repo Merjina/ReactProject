@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Button, Card, Row, Col, Container } from 'react-bootstrap';
 import { FaTrashAlt, FaShoppingCart } from 'react-icons/fa'; // Add Cart Icon
+import '../styles/cart.css';  
+
+
 
 function Cart() {
     const location = useLocation();
