@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Card, Button } from "react-bootstrap";
-
+import { useNavigate } from 'react-router-dom';
 function Login() {
     const users = [
+        { username: 'admin@gmail.com', password: 'password' },
         { username: 'user1@gmail.com', password: 'pass1' },
         { username: 'user2@gmail.com', password: 'pass2' },
         { username: 'user3@gmail.com', password: 'pass3' },
@@ -10,10 +11,11 @@ function Login() {
         { username: 'user5@gmail.com', password: 'pass5' },
       ];
     
-      const [username, setUsername] = useState('');
-      const [password, setPassword] = useState('');
+      const [username, setUsername] = useState('admin@gmail.com');
+      const [password, setPassword] = useState('password');
       const [error, setError] = useState('');
       const [success, setSuccess] = useState('');
+      const navigate = useNavigate();
     
       const handleSubmit = (e) => {
         e.preventDefault();
@@ -30,6 +32,10 @@ function Login() {
     
         if (user) {
           setSuccess('Login successful!');
+          setTimeout(() => {
+            navigate('/' ,{ state: { username, password } }); // to home page
+            console.log(navigate);
+          }, 1000); //
         } else {
           setError('Invalid username or password');
         }
@@ -38,8 +44,10 @@ function Login() {
 
   return (
     <div className='d-flex justify-content-center align-items-center min-vh-100 shadow-lg' style={{ background: 'linear-gradient(90deg, #00d2ff, #E907DA)', border: 'none' }}>
-      <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
-      </div>
+      <div style={{ position: 'absolute', top: '20px', width: '100%', textAlign: 'center' }}>
+                {error && <div className="alert alert-danger mx-auto" style={{ maxWidth: '400px' }}>{error}</div>}
+                {success && <div className="alert alert-success mx-auto" style={{ maxWidth: '400px' }}>{success}</div>}
+            </div>
       <Card className='mb-5 shadow-sm text-center' style={{ width: '23rem', height: '27rem' }}>
         <Card.Body>
           <Card.Title>Login Form</Card.Title>
@@ -65,8 +73,6 @@ function Login() {
                 />
                 <span className='text-primary' style={{ cursor: 'pointer' }}>Forgot Password?</span>
               </div>
-              {error && <div className="alert alert-danger">{error}</div>}
-              {success && <div className="alert alert-success">{success}</div>}
               <Button 
                 type="submit" 
                 style={{ background: 'linear-gradient(90deg, #00d2ff, #9D06E9)', border: 'none' }} 

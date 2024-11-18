@@ -75,9 +75,6 @@ const Inspiration = () => {
 
 
       <h2 className="text-center mb-4">Join Our Community  <a href="/login" className="text-dark"><FaUsers className="fs-1 text-dark mb-2" /> </a></h2>
-      
-      <h2 className="text-center mb-4">Join Our Community <FaUsers className="fs-1 text-dark mb-2" /></h2>
-
       <Row className="mb-5">
       <Col md={6}>
           <Card className="p-4 shadow-sm">
