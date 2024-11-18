@@ -21,7 +21,7 @@ function App() {
         {/* Define Routes */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={    <Login/>} />
+           <Route path="/login" element={    <Login/>} /> 
           <Route path="/" element={    <Login/>} />
           <Route path="/search" element={    <SearchItems/>} />
            <Route path="/category/:category" element={<Category />} />
