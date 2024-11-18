@@ -1,3 +1,4 @@
+/* Button Hover Effect (using existing .button-hover-effect class) */
 .button-hover-effect {
   background-color: rgb(131, 167, 226); 
   color: black;
@@ -10,17 +11,8 @@
   text-align: center;
   width: 25%;              
   height: auto; 
-  
-             
-}
-.parent-container {
-  display: flex;
-  justify-content: center;
 }
 
-
-
-/* Hover effect */
 .button-hover-effect:hover {
   background-color: #afbb3e; 
 }
@@ -188,4 +180,5 @@ button.btn {
 /* Hover Effect */
 .navbar-brand:hover .logo-icon {
   color: #FF416C; /* Change icon color on hover */
+
 }
