@@ -12,7 +12,7 @@ const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cart,setCart]=useState([])
   const [slideDirection, setSlideDirection] = useState(''); // State to track slide direction
-  const itemsPerPage = 3;
+  const itemsPerPage = 6;
 
   // Fetch data from API
   useEffect(() => {
@@ -69,21 +69,24 @@ const Home = () => {
   return (
     <div className="container-fluid px-4">
       {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
+      <nav className="navbar navbar-expand-lg navbar-light bg-info  mb-4">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">MARKET NEST</a>
+        <a className="navbar-brand d-flex align-items-center" href="/">
+  <FaShoppingCart className="me-2 logo-icon text-dark" />
+  <span className="brand-name text-dark highlight-title">Market Nest</span>
+</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
-                <a className="nav-link active" href="/">Home</a>
+                <a className="nav-link active text-dark" href="/">Home</a>
               </li>
               {/* Dropdown Menu for Categories */}
               <li className="nav-item dropdown">
                 <a
-                  className="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle text-dark"
                   href="#"
                   id="categoriesDropdown"
                   role="button"
@@ -98,10 +101,10 @@ const Home = () => {
                 </ul>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/Contact">Contact us</a>
+                <a className="nav-link text-dark" href="/Contact">Contact us</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/about">Inspiration</a>
+                <a className="nav-link text-dark" href="/about">Inspiration</a>
               </li>
             </ul>
             <div className="d-flex align-items-center">
@@ -114,7 +117,7 @@ const Home = () => {
                   <span className='cart-count'>{cart.length}</span>
                 )}
               </a>
-              <a href="/test" className="text-dark">
+              <a href="/login" className="text-dark">
                 <FaUser />
               </a>
             </div>
@@ -123,20 +126,24 @@ const Home = () => {
       </nav>
 
       {/* Product Display Section */}
-      <div className="py-3">
-        <small className="text-secondary">{data.length} products</small>
-      </div>
+      
 
       <div className="mb-4 position-relative">
-        <h3 className="h5 mb-2">We thought you might like these!</h3>
-        <p className="text-secondary small mb-4">Based on your shopping habits...</p>
+      <div className="section-heading">
+  <h3>We thought you might like these!</h3>
+  <p>Based on your shopping habits...</p>
+</div>
+<div className="py-3">
+        <strong className="text-secondary text-dark">{data.length} products...</strong>
+      </div>
+
 
         {/* Apply animation class conditionally based on slide direction */}
         <div className={`row g-4 ${slideDirection}`}>
           {currentItems.map((product) => (
             <div key={product.id} className="col-12 col-md-4">
               <div className="position-relative">
-                <div className="product-image-container" style={{ height: '300px', overflow: 'hidden' }}>
+                <div className="product-image-container" style={{ height: '200px', overflow: 'hidden' }}>
                   <img
                     src={product.image}
                     className="img-fluid w-100 h-100"
@@ -154,20 +161,27 @@ const Home = () => {
               </div>
               <div className="mt-2">
                 <div className="small fw-bold text-truncate text-center mt-3">{product.title}</div>
-                <div className="small fw-light m-2" style={{ minHeight: '60px', color: '#212529' }}>
-                  {product.description.split(' ').length > 20
-                    ? product.description.split(' ').slice(0, 25).join(' ') + '...'
-                    : product.description}
-                </div>
-                <div className="fw-bold mt-2 ms-2 text-start">Fr. {product.price.toFixed(2)}</div>
+                <div className="small fw-light m-2 text-truncate"
+                     style={{ minHeight: '60px', maxHeight: '40px', overflow: 'hidden', color: '#212529' }}
+                    title={product.description} // Tooltip to show full description on hover
+                >
+  {product.description.length > 100
+    ? `${product.description.substring(0, 100)}...`
+    : product.description}
+    <div className="fw-bold mt-2 ms-2 text-start text-center text-primary">$. {product.price.toFixed(2)}</div>
+</div>
 
-                <button className="button-hover-effect" onClick={()=>addtocart(product)}>Add to cart</button>
+                
+                <div className="parent-container">
+                <button className="button-hover-effect " onClick={()=>addtocart(product)}>Add to cart</button>
                 </div>
+                </div>
+
 
             </div>
           ))}
         </div>
-
+       <br /> <br />
         <button
           className={`btn btn-light rounded-circle position-absolute start-0 top-50 translate-middle-y d-none d-md-block ms-2 ${currentIndex === 0 ? 'disabled' : ''}`}
           onClick={handlePrev}
