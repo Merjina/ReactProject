@@ -1,5 +1,5 @@
 .button-hover-effect {
-  background-color: rgb(234, 234, 28); 
+  background-color: rgb(131, 167, 226); 
   color: black;
   margin-top: 5px;            
   padding: 10px;       
@@ -9,13 +9,20 @@
   transition: background-color 0.3s ease; 
   text-align: center;
   width: 25%;              
-  height: auto;            
+  height: auto; 
+  
+             
 }
+.parent-container {
+  display: flex;
+  justify-content: center;
+}
+
 
 
 /* Hover effect */
 .button-hover-effect:hover {
-  background-color: #fcff53; 
+  background-color: #afbb3e; 
 }
 
 /* Slide left animation */
@@ -49,4 +56,222 @@
   .slide-right {
     animation: slideRight 0.5s ease-in-out;
   }
-  
+
+
+
+
+
+
+
+ /* styles/style.css  contact*/ 
+
+/* General Background */
+.contact-page {
+  background-color: #f0f8ff; /* Light Blue */
+  min-height: 100vh;
+}
+
+/* Header Styles */
+h1.text-light {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #000000; /* Changed color to black */
+  text-transform: uppercase; /* Uppercase for emphasis */
+  letter-spacing: 2px; /* Added spacing for readability */
+}
+
+/* Container Styles */
+.container {
+  max-width: 1200px;
+  padding: 30px;
+  margin: 0 auto;
+}
+
+/* Section Styles (Card-like UI) */
+.bg-light {
+  background-color: #ffffff;
+}
+
+.contact-form, .schedule-meeting, .customer-care {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Form Field Styles */
+.form-control {
+  border-radius: 5px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  margin-bottom: 10px;
+}
+
+/* Input Group */
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-group select,
+.input-group input {
+  margin-right: 10px;
+}
+
+/* Increase Size of Phone Number Field */
+.contact-form .form-control[type="text"] {
+  width: 100%; /* Ensures full width in mobile view */
+  height: 45px; /* Increased height for better usability */
+}
+
+/* Button Styles */
+button.btn {
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+/* Customer Care Section */
+.customer-care .social-icons a {
+  font-size: 1rem;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.customer-care .social-icons a:hover {
+  background-color: #ddd;
+}
+
+.social-icon {
+  font-weight: bold;
+}
+
+.text-decoration-none {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Fixing the Contact Number Display Issue */
+.customer-care p {
+  font-size: 1.2rem; /* Larger font size for phone number */
+}
+
+.customer-care p a {
+  color: #007bff; /* Make phone number blue */
+  text-decoration: none;
+}
+
+.customer-care p a:hover {
+  text-decoration: underline; /* Underline on hover for better UX */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 30px 15px;
+  }
+
+  .contact-form, .schedule-meeting, .customer-care {
+    margin: 10px 0;
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .contact-form .form-control,
+  .schedule-meeting button,
+  .customer-care .social-icons a {
+    font-size: 0.9rem; /* Reduce font size on mobile for better fit */
+  }
+}
+
+/* Fancy Hover Effect for Buttons */
+.schedule-meeting button:hover, 
+.contact-form button:hover, 
+.customer-care .social-icons a:hover {
+  transform: translateY(-3px);
+}
+
+/* Shadow Effect for Container */
+.container {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #ffffff;
+  padding: 30px;
+}
+/* Heading Section Styling */
+.section-heading {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 10px;
+  position: relative;
+}
+
+/* Animated Gradient Text */
+.section-heading h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #FF416C, #FF4B2B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 3s infinite;
+}
+
+/* Subtitle Styling */
+.section-heading p {
+  font-size: 1rem;
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* Gradient Animation */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Logo Icon Styling */
+.logo-icon {
+  font-size: 1.8rem;
+  color: #007bff; /* Customize the color of the icon */
+}
+
+/* Brand Name Styling */
+.brand-name {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #333;
+  letter-spacing: 0.5px;
+}
+
+/* Hover Effect */
+.navbar-brand:hover .logo-icon {
+  color: #FF416C; /* Change icon color on hover */
+}
