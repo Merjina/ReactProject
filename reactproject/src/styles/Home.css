@@ -1,0 +1,92 @@
+.parent-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Responsive Design */
+@media (max-width: 768px) {
+    .contact-page {
+      padding: 30px 15px;
+    }
+  
+    .contact-form, .schedule-meeting, .customer-care {
+      margin: 10px 0;
+    }
+  
+    .container {
+      padding: 0;
+    }
+  
+    .contact-form .form-control,
+    .schedule-meeting button,
+    .customer-care .social-icons a {
+      font-size: 0.9rem; /* Reduce font size on mobile for better fit */
+    }
+  }
+  
+  /* Fancy Hover Effect for Buttons */
+  .schedule-meeting button:hover, 
+  .contact-form button:hover, 
+  .customer-care .social-icons a:hover {
+    transform: translateY(-3px);
+  }
+  
+  /* Shadow Effect for Container */
+  .container {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 30px;
+  }
+  /* Heading Section Styling */
+  .section-heading {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 10px;
+    position: relative;
+  }
+  
+  /* Animated Gradient Text */
+  .section-heading h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(to right, #FF416C, #FF4B2B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientAnimation 3s infinite;
+  }
+  
+  /* Subtitle Styling */
+  .section-heading p {
+    font-size: 1rem;
+    color: #6c757d;
+    font-style: italic;
+  }
+  
+  /* Gradient Animation */
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Logo Icon Styling-home */
+  .logo-icon {
+    font-size: 1.8rem;
+    color: #007bff; /* Customize the color of the icon */
+  }
+  
+  /* Brand Name Styling */
+  .brand-name {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #333;
+    letter-spacing: 0.5px;
+  }
+  
