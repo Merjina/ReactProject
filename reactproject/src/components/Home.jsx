@@ -4,6 +4,7 @@ import axios from 'axios';
 import { FaSearch, FaShoppingCart, FaUser, FaHeart } from 'react-icons/fa';
 import Cart from './Cart'
 import '../styles/style.css';
+import '../styles/Home.css';
 
 const Home = () => {
   const navigate=useNavigate();

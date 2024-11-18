@@ -17,9 +17,168 @@
   background-color: #afbb3e; 
 }
 
-/* Responsive Button Adjustments */
-@media (max-width: 768px) {
-  .button-hover-effect {
-    width: 60%; /* Adjust button width for mobile */
+/* Slide left animation */
+@keyframes slideLeft {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
+  
+  /* Slide right animation */
+  @keyframes slideRight {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .slide-left {
+    animation: slideLeft 0.5s ease-in-out;
+  }
+  
+  .slide-right {
+    animation: slideRight 0.5s ease-in-out;
+  }
+
+
+
+
+
+
+
+ /* styles/style.css  contact*/ 
+
+/* General Background */
+.contact-page {
+  background-color: #f0f8ff; /* Light Blue */
+  min-height: 100vh;
+}
+
+/* Header Styles */
+h1.text-light {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #000000; /* Changed color to black */
+  text-transform: uppercase; /* Uppercase for emphasis */
+  letter-spacing: 2px; /* Added spacing for readability */
+}
+
+/* Container Styles */
+.container {
+  max-width: 1200px;
+  padding: 30px;
+  margin: 0 auto;
+}
+
+/* Section Styles (Card-like UI) */
+.bg-light {
+  background-color: #ffffff;
+}
+
+.contact-form, .schedule-meeting, .customer-care {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Form Field Styles */
+.form-control {
+  border-radius: 5px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  margin-bottom: 10px;
+}
+
+/* Input Group */
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-group select,
+.input-group input {
+  margin-right: 10px;
+}
+
+/* Increase Size of Phone Number Field */
+.contact-form .form-control[type="text"] {
+  width: 100%; /* Ensures full width in mobile view */
+  height: 45px; /* Increased height for better usability */
+}
+
+/* Button Styles */
+button.btn {
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+/* Customer Care Section */
+.customer-care .social-icons a {
+  font-size: 1rem;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.customer-care .social-icons a:hover {
+  background-color: #ddd;
+}
+
+.social-icon {
+  font-weight: bold;
+}
+
+.text-decoration-none {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Fixing the Contact Number Display Issue */
+.customer-care p {
+  font-size: 1.2rem; /* Larger font size for phone number */
+}
+
+.customer-care p a {
+  color: #007bff; /* Make phone number blue */
+  text-decoration: none;
+}
+
+.customer-care p a:hover {
+  text-decoration: underline; /* Underline on hover for better UX */
+}
+
+
+/* Hover Effect */
+.navbar-brand:hover .logo-icon {
+  color: #FF416C; /* Change icon color on hover */
+
 }
