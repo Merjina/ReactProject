@@ -7,6 +7,9 @@ import SearchItems from './components/SearchItems';
 import Inspiration from './components/Inspiration';
 import Cart from './components/Cart';
 import './styles/style.css';
+import './styles/inspiration.css';
+
+
 
 
 

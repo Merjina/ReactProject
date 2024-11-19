@@ -1,5 +1,4 @@
 import React from "react";
-import './About.css';
 import about from './about.jpg'; // Single image
 import about1 from './about1.jpg';
 import about2 from './about2.jpg';
@@ -79,7 +78,6 @@ const Inspiration = () => {
           </Card>
         </Col>
       </Row>
-
       <h2 className="text-center mb-4">What Makes Us Different?..</h2>
       <Row className="mb-5">
         <Col md={12}>
