@@ -4,13 +4,15 @@ import axios from 'axios';
 import { FaSearch, FaShoppingCart, FaUser, FaHeart } from 'react-icons/fa';
 import Cart from './Cart'
 import '../styles/style.css';
+import '../styles/Home.css';
 
 const Home = () => {
   const navigate=useNavigate();
   const [data, setData] = useState([]);
   const [likedProducts, setLikedProducts] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [cart,setCart]=useState([])
+  const [cart,setCart]=useState([]);
+  const [wishlist, setWishlist] = useState([]);
   const [slideDirection, setSlideDirection] = useState(''); // State to track slide direction
   const itemsPerPage = 6;
 
@@ -61,7 +63,22 @@ const Home = () => {
   const addtocart=(product)=>{
     setCart([...cart,product]);
    }
+
+   const handleWishlistToggle = (product) => {
+    const isLiked = wishlist.some((item) => item.id === product.id);
+    
+    if (isLiked) {
+      // Remove item from wishlist
+      setWishlist(wishlist.filter((item) => item.id !== product.id));
+    } else {
+      // Add item to wishlist
+      setWishlist([...wishlist, product]);
+    }
+  };
+  
+
    const togglecart = () => navigate('/cart', { state: { cart } });
+   const toggleWishlist =()=> navigate('/wishlist', { state: { wishlist } });
 
 
   const currentItems = data.slice(currentIndex, currentIndex + itemsPerPage);
@@ -117,6 +134,18 @@ const Home = () => {
                   <span className='cart-count'>{cart.length}</span>
                 )}
               </a>
+              <a href="/wishlist" className="text-dark position-relative me-3" onClick={toggleWishlist}>
+                <FaHeart style={{ fontSize: '1rem' }} />
+                {wishlist.length > 0 && (
+                  <span
+                    className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                    style={{ fontSize: '0.6rem' }}
+                  >
+                    {wishlist.length}
+                  </span>
+                )}
+              </a>
+
               <a href="/login" className="text-dark">
                 <FaUser />
               </a>
@@ -154,10 +183,21 @@ const Home = () => {
                 <button
                   className="btn btn-light position-absolute top-0 end-0 mt-2 me-2 rounded-circle p-0 d-flex align-items-center justify-content-center"
                   style={{ width: '40px', height: '40px' }}
-                  onClick={() => toggleLike(product.id)}
+                  onClick={() => {
+                    toggleLike(product.id);
+                    handleWishlistToggle(product); // Use the correct function here
+                  }}
                 >
-                  <FaHeart style={{ fontSize: '1.2rem', color: likedProducts[product.id] ? 'red' : 'gray' }} />
+                  <FaHeart
+                    style={{
+                      fontSize: '1.2rem',
+                      color: wishlist.some((item) => item.id === product.id) ? 'red' : 'gray',
+                    }}
+                  />
                 </button>
+
+
+
               </div>
               <div className="mt-2">
                 <div className="small fw-bold text-truncate text-center mt-3">{product.title}</div>
@@ -165,11 +205,11 @@ const Home = () => {
                      style={{ minHeight: '60px', maxHeight: '40px', overflow: 'hidden', color: '#212529' }}
                     title={product.description} // Tooltip to show full description on hover
                 >
-  {product.description.length > 100
-    ? `${product.description.substring(0, 100)}...`
-    : product.description}
-    <div className="fw-bold mt-2 ms-2 text-start text-center text-primary">$. {product.price.toFixed(2)}</div>
-</div>
+                  {product.description.length > 100
+                    ? `${product.description.substring(0, 100)}...`
+                    : product.description}
+                    <div className="fw-bold mt-2 ms-2 text-start text-center text-primary">$. {product.price.toFixed(2)}</div>
+                </div>
 
                 
                 <div className="parent-container">
