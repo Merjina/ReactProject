@@ -50,7 +50,7 @@
   .section-heading h3 {
     font-size: 2rem;
     font-weight: 700;
-    background: linear-gradient(to right, #FF416C, #FF4B2B);
+    background: linear-gradient(to right, #01202d, #53bfc7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradientAnimation 3s infinite;
