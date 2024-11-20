@@ -52,19 +52,17 @@ const Inspiration = () => {
           </Card>
         </Col>
       </Row>
-
       <h2 className="text-center mb-4">What Makes Us Different?..</h2>
       <Row className="mb-5">
         <Col md={12}>
           <Card className="p-4 shadow-sm">
             <Card.Body>
               <Card.Text>
-             
-             <ul>
+                <ul>
                   <li>Quality You Can Trust: We handpick every product, ensuring only the finest quality items make it to our catalog.</li>
                   <li>Affordable Fashion: We believe style shouldn't come with a hefty price tag. That’s why we offer trendy, high-quality products at competitive prices.</li>
                   <li>Customer-Centric Approach: Your satisfaction is our top priority. We listen to your feedback and continuously improve our services to meet your needs.</li>
-                  </ul>
+                </ul>
               </Card.Text>
             </Card.Body>
           </Card>
@@ -104,7 +102,8 @@ const Inspiration = () => {
                 Don’t forget to subscribe to our newsletter for exciting deals and updates straight to your inbox!
             <br /><br /><br />
                 Thank you for choosing Market Nest. We look forward to serving you and making your shopping experience unforgettable.
-<br /><br /><br />
+                <br />
+                <br />
                 Happy Shopping! 🛒✨
                 <br /><br /><br /><br /><br /><br /><br />
               </Card.Text>
@@ -115,6 +114,5 @@ const Inspiration = () => {
     </Container>
   );
 };
-
 
 export default Inspiration;
