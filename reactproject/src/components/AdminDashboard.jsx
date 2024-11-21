@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Card, Button } from "react-bootstrap";
 import { FaShoppingCart, FaSearch, FaUser } from 'react-icons/fa';
 import '../styles/style.css';
 
@@ -88,11 +89,6 @@ const AdminDashboard = () => {
                   Dashboard
                 </a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link text-dark" href="/manage-products">
-                  Manage Products
-                </a>
-              </li>
             </ul>
             <div className="d-flex align-items-center">
               <a href="/search" className="text-dark me-3">
@@ -108,54 +104,72 @@ const AdminDashboard = () => {
 
       {/* Dashboard Section */}
       <div className="mb-4">
-        <h2 className="text-center mb-4">Admin Dashboard</h2>
+        <h2 className="text-center mb-3  ">Admin Dashboard</h2>
 
         {/* Form to Add a New Item */}
-        <form className="bg-light p-4 rounded shadow mb-4" onSubmit={handleAddItem}>
-          <h3>Add New Item</h3>
-          <div className="mb-3">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Title"
-              value={newItem.title}
-              onChange={(e) => setNewItem({ ...newItem, title: e.target.value })}
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <input
-              type="number"
-              className="form-control"
-              placeholder="Price"
-              value={newItem.price}
-              onChange={(e) => setNewItem({ ...newItem, price: e.target.value })}
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <textarea
-              className="form-control"
-              placeholder="Description"
-              value={newItem.description}
-              onChange={(e) => setNewItem({ ...newItem, description: e.target.value })}
-              required
-            ></textarea>
-          </div>
-          <div className="mb-3">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Image URL"
-              value={newItem.image}
-              onChange={(e) => setNewItem({ ...newItem, image: e.target.value })}
-              required
-            />
-          </div>
-          <button type="submit" className="btn btn-primary w-100">
-            Add Item
-          </button>
-        </form>
+
+
+ <div className="d-flex justify-content-center align-items-center vh-95 mb-4"> 
+<Card className='mb-5 shadow-sm text-center' style={{ width: '30rem', height: 'auto' }}>
+   <Card.Body>
+     <Card.Title>Add New Item</Card.Title>
+        <Card.Text>
+            <form
+              // className="bg-light p-4 rounded shadow"
+              style={{ width: '100%', maxWidth: '30rem' }}
+              onSubmit={handleAddItem}>
+              {/* <h3 className="text-center mb-4">Add New Item</h3> */}
+              <div className="mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Title"
+                  value={newItem.title}
+                  onChange={(e) => setNewItem({ ...newItem, title: e.target.value })}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  type="number"
+                  className="form-control"
+                  placeholder="Price"
+                  value={newItem.price}
+                  onChange={(e) => setNewItem({ ...newItem, price: e.target.value })}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <textarea
+                  className="form-control"
+                  placeholder="Description"
+                  rows="3"
+                  value={newItem.description}
+                  onChange={(e) => setNewItem({ ...newItem, description: e.target.value })}
+                  required
+                ></textarea>
+              </div>
+              <div className="mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Image URL"
+                  value={newItem.image}
+                  onChange={(e) => setNewItem({ ...newItem, image: e.target.value })}
+                  required
+                />
+              </div>
+              <button type="submit" className="btn btn-primary w-100 mt-4" >
+                Add Item
+              </button>
+            </form>
+       </Card.Text>
+     </Card.Body>
+ </Card>
+</div> 
+
+
+
 
         {/* Items Display */}
         <div className="row g-4">
@@ -204,15 +218,15 @@ const AdminDashboard = () => {
                         {item.description}
                       </p>
                       <p className="text-primary fw-bold">${item.price.toFixed(2)}</p>
-                      <div className="d-flex justify-content-between">
+                      <div className="d-flex justify-content-bewteen">
                         <button
-                          className="btn btn-warning"
+                          className="btn btn-warning "
                           onClick={() => setEditingItem(item)}
                         >
                           Edit
                         </button>
                         <button
-                          className="btn btn-danger"
+                          className="btn btn-danger "
                           onClick={() => handleDeleteItem(item.id)}
                         >
                           Delete
