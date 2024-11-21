@@ -9,7 +9,11 @@ import Contact from './components/Contact';
 import Inspiration from './components/Inspiration';
 import Login from './components/Login';
 import Cart from './components/Cart';
+
 import AdminDashboard from './components/AdminDashboard';
+
+import Wishlist from './components/Wishlist';
+
 
 
 function App() {
@@ -28,7 +32,11 @@ function App() {
           <Route path="/contact" element={ <Contact/>} />
           <Route path="/about" element={    <Inspiration/>} />
           <Route path="/cart" element={<Cart/>}/>
+
           <Route path="/admin" element={<AdminDashboard/>}/>
+
+          <Route path="/wishlist" element={<Wishlist/>}/>
+
         </Routes>
       </div>
     </Router>
