@@ -89,11 +89,6 @@ const AdminDashboard = () => {
                   Dashboard
                 </a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link text-dark" href="/manage-products">
-                  Manage Products
-                </a>
-              </li>
             </ul>
             <div className="d-flex align-items-center">
               <a href="/search" className="text-dark me-3">
