@@ -223,15 +223,15 @@ const AdminDashboard = () => {
                         {item.description}
                       </p>
                       <p className="text-primary fw-bold">${item.price.toFixed(2)}</p>
-                      <div className="d-flex justify-content-center">
+                      <div className="d-flex justify-content-bewteen">
                         <button
-                          className="btn btn-warning m-2 w-100"
+                          className="btn btn-warning "
                           onClick={() => setEditingItem(item)}
                         >
                           Edit
                         </button>
                         <button
-                          className="btn btn-danger m-2 w-100"
+                          className="btn btn-danger "
                           onClick={() => handleDeleteItem(item.id)}
                         >
                           Delete
