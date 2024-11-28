@@ -13,6 +13,7 @@ import Cart from './components/Cart';
 import AdminDashboard from './components/AdminDashboard';
 
 import Wishlist from './components/Wishlist';
+import SignUp from './components/SignUp';
 
 
 
@@ -25,7 +26,7 @@ function App() {
         {/* Define Routes */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={    <Login/>} />
+           <Route path="/login" element={    <Login/>} /> 
           <Route path="/" element={    <Login/>} />
           <Route path="/search" element={    <SearchItems/>} />
            <Route path="/category/:category" element={<Category />} />
@@ -36,6 +37,7 @@ function App() {
           <Route path="/admin" element={<AdminDashboard/>}/>
 
           <Route path="/wishlist" element={<Wishlist/>}/>
+          <Route path="/signup" element={<SignUp/>}/>
 
         </Routes>
       </div>
