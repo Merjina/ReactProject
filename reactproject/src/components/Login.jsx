@@ -42,6 +42,12 @@ function Login() {
                     navigate('/', { state: { username ,password} }); // to home page for regular users
                 }
             }, 1000);
+
+          setSuccess('Login successful!');
+          setTimeout(() => {
+            navigate('/admin' ,{ state: { username, password } }); // to home page
+            console.log(navigate);
+          }, 1000); //
         } else {
             setError('Invalid username or password');
         }
