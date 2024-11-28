@@ -33,7 +33,7 @@ function Login() {
         if (user) {
           setSuccess('Login successful!');
           setTimeout(() => {
-            navigate('/' ,{ state: { username, password } }); // to home page
+            navigate('/admin' ,{ state: { username, password } }); // to home page
             console.log(navigate);
           }, 1000); //
         } else {
