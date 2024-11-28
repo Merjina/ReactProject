@@ -110,9 +110,9 @@ const AdminDashboard = () => {
 
 
  <div className="d-flex justify-content-center align-items-center vh-95 mb-4"> 
-<Card className='mb-5 shadow-sm text-center' style={{ width: '30rem', height: 'auto' }}>
+<Card className='mb-5 shadow-sm text-center' style={{ width: '30rem', height: '31rem' }}>
    <Card.Body>
-     <Card.Title>Add New Item</Card.Title>
+     <Card.Title className='mb-3'>Add New Item</Card.Title>
         <Card.Text>
             <form
               // className="bg-light p-4 rounded shadow"
@@ -139,7 +139,7 @@ const AdminDashboard = () => {
                   required
                 />
               </div>
-              <div className="mb-3">
+              <div className="mb-4">
                 <textarea
                   className="form-control"
                   placeholder="Description"
@@ -149,7 +149,7 @@ const AdminDashboard = () => {
                   required
                 ></textarea>
               </div>
-              <div className="mb-3">
+              <div className="mb-3 mt-3">
                 <input
                   type="text"
                   className="form-control"
@@ -159,7 +159,7 @@ const AdminDashboard = () => {
                   required
                 />
               </div>
-              <button type="submit" className="btn btn-primary w-100 mt-4" >
+              <button type="submit" className="btn btn-primary w-100 mt-5" >
                 Add Item
               </button>
             </form>

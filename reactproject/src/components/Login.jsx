@@ -37,9 +37,9 @@ function Login() {
             setTimeout(() => {
                 // Navigate to AdminDashboard if the user is an admin
                 if (user.role === 'admin') {
-                    navigate('/admin', { state: { username } }); // to admin dashboard
+                    navigate('/admin', { state: { username,password } }); // to admin dashboard
                 } else {
-                    navigate('/', { state: { username } }); // to home page for regular users
+                    navigate('/', { state: { username ,password} }); // to home page for regular users
                 }
             }, 1000);
         } else {
