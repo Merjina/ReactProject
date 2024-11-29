@@ -169,58 +169,73 @@ const Home = () => {
 
         {/* Apply animation class conditionally based on slide direction */}
         <div className={`row g-4 ${slideDirection}`}>
-          {currentItems.map((product) => (
-            <div key={product.id} className="col-12 col-md-4">
-              <div className="position-relative">
-                <div className="product-image-container" style={{ height: '200px', overflow: 'hidden' }}>
-                  <img
-                    src={product.image}
-                    className="img-fluid w-100 h-100"
-                    alt={product.title}
-                    style={{ objectFit: 'contain' }}
-                  />
-                </div>
-                <button
-                  className="btn btn-light position-absolute top-0 end-0 mt-2 me-2 rounded-circle p-0 d-flex align-items-center justify-content-center"
-                  style={{ width: '40px', height: '40px' }}
-                  onClick={() => {
-                    toggleLike(product.id);
-                    handleWishlistToggle(product); // Use the correct function here
-                  }}
-                >
-                  <FaHeart
-                    style={{
-                      fontSize: '1.2rem',
-                      color: wishlist.some((item) => item.id === product.id) ? 'red' : 'gray',
-                    }}
-                  />
-                </button>
-
-
-
-              </div>
-              <div className="mt-2">
-                <div className="small fw-bold text-truncate text-center mt-3">{product.title}</div>
-                <div className="small fw-light m-2 text-truncate"
-                     style={{ minHeight: '60px', maxHeight: '40px', overflow: 'hidden', color: '#212529' }}
-                    title={product.description} // Tooltip to show full description on hover
-                >
-                  {product.description.length > 100
-                    ? `${product.description.substring(0, 100)}...`
-                    : product.description}
-                    <div className="fw-bold mt-2 ms-2 text-start text-center text-primary">$. {product.price.toFixed(2)}</div>
-                </div>
-
-                
-                <div className="parent-container">
-                <button className="button-hover-effect " onClick={()=>addtocart(product)}>Add to cart</button>
-                </div>
-                </div>
-
-
-            </div>
-          ))}
+  {currentItems.map((product) => (
+    <div key={product.id} className="col-12 col-md-4">
+      <div className="card h-100">
+        {/* Product Image */}
+        <div
+          className="product-image-container position-relative"
+          style={{ height: '200px', overflow: 'hidden' }}
+        >
+          <img
+            src={product.image}
+            className="card-img-top img-fluid w-100 h-100"
+            alt={product.title}
+            style={{ objectFit: 'contain' }}
+          />
+          <button
+            className="btn btn-light position-absolute top-0 end-0 mt-2 me-2 rounded-circle p-0 d-flex align-items-center justify-content-center"
+            style={{ width: '40px', height: '40px' }}
+            onClick={() => {
+              toggleLike(product.id);
+              handleWishlistToggle(product);
+            }}
+          >
+            <FaHeart
+              style={{
+                fontSize: '1.2rem',
+                color: wishlist.some((item) => item.id === product.id) ? 'red' : 'gray',
+              }}
+            />
+          </button>
         </div>
+
+        {/* Card Body */}
+        <div className="card-body">
+          <h5 className="card-title text-center text-truncate">{product.title}</h5>
+          <p
+            className="card-text small fw-light text-truncate"
+            style={{
+              minHeight: '60px',
+              maxHeight: '40px',
+              overflow: 'hidden',
+              color: '#212529',
+            }}
+            title={product.description} // Tooltip to show full description on hover
+          >
+            {product.description.length > 100
+              ? `${product.description.substring(0, 100)}...`
+              : product.description}
+          </p>
+          <div className="fw-bold text-primary text-center mb-2">
+            $. {product.price.toFixed(2)}
+          </div>
+        </div>
+
+        {/* Card Footer */}
+        <div className="card-footer text-center">
+          <button
+            className="btn btn-primary w-100"
+            onClick={() => addtocart(product)}
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
        <br /> <br />
         <button
           className={`btn btn-light rounded-circle position-absolute start-0 top-50 translate-middle-y d-none d-md-block ms-2 ${currentIndex === 0 ? 'disabled' : ''}`}
