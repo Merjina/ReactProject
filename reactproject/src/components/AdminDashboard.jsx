@@ -114,6 +114,7 @@ const AdminDashboard = () => {
         <h2 className="text-center mb-3">Admin Dashboard</h2>
 
         {/* Form to Add a New Item */}
+
         <div className="d-flex justify-content-center align-items-center vh-95 mb-4">
           <Card className="mb-5 shadow-sm text-center" style={{ width: '30rem', height: 'auto' }}>
             <Card.Body>
@@ -171,6 +172,71 @@ const AdminDashboard = () => {
             </Card.Body>
           </Card>
         </div>
+
+
+
+ <div className="d-flex justify-content-center align-items-center vh-95 mb-4"> 
+<Card className='mb-5 shadow-sm text-center' style={{ width: '30rem', height: '31rem' }}>
+   <Card.Body>
+     <Card.Title className='mb-3'>Add New Item</Card.Title>
+        <Card.Text>
+            <form
+              // className="bg-light p-4 rounded shadow"
+              style={{ width: '100%', maxWidth: '30rem' }}
+              onSubmit={handleAddItem}>
+              {/* <h3 className="text-center mb-4">Add New Item</h3> */}
+              <div className="mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Title"
+                  value={newItem.title}
+                  onChange={(e) => setNewItem({ ...newItem, title: e.target.value })}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  type="number"
+                  className="form-control"
+                  placeholder="Price"
+                  value={newItem.price}
+                  onChange={(e) => setNewItem({ ...newItem, price: e.target.value })}
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <textarea
+                  className="form-control"
+                  placeholder="Description"
+                  rows="3"
+                  value={newItem.description}
+                  onChange={(e) => setNewItem({ ...newItem, description: e.target.value })}
+                  required
+                ></textarea>
+              </div>
+              <div className="mb-3 mt-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Image URL"
+                  value={newItem.image}
+                  onChange={(e) => setNewItem({ ...newItem, image: e.target.value })}
+                  required
+                />
+              </div>
+              <button type="submit" className="btn btn-primary w-100 mt-5" >
+                Add Item
+              </button>
+            </form>
+       </Card.Text>
+     </Card.Body>
+ </Card>
+</div> 
+
+
+
+
 
         {/* Items Display */}
         <div className="row g-4">
