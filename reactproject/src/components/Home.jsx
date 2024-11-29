@@ -175,13 +175,13 @@ const Home = () => {
         {/* Product Image */}
         <div
           className="product-image-container position-relative"
-          style={{ height: '200px', overflow: 'hidden' }}
+          style={{ height: '240px', overflow: 'hidden' }}
         >
           <img
             src={product.image}
             className="card-img-top img-fluid w-100 h-100"
             alt={product.title}
-            style={{ objectFit: 'contain' }}
+            style={{ objectFit: 'contain' ,padding:'15px' }}
           />
           <button
             className="btn btn-light position-absolute top-0 end-0 mt-2 me-2 rounded-circle p-0 d-flex align-items-center justify-content-center"
