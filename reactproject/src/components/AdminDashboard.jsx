@@ -247,7 +247,7 @@ const AdminDashboard = () => {
                   src={item.image}
                   className="card-img-top"
                   alt={item.title}
-                  style={{ objectFit: 'contain', height: '200px' }}
+                  style={{ objectFit: 'contain', height: '235px', padding:'15px' }}
                 />
                 <div className="card-body">
                   {editingItem?.id === item.id ? (
