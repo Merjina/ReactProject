@@ -41,11 +41,18 @@ const AdminDashboard = () => {
   // Handle editing an existing item
   const handleEditItem = async (id) => {
     if (!editingItem) return;
+
     try {
+      // Send updated data to the API
+      await axios.put(`https://fakestoreapi.com/products/${id}`, editingItem);
+
+      // Update the item in the local state
       const updatedItems = items.map((item) =>
         item.id === id ? { ...item, ...editingItem } : item
       );
       setItems(updatedItems);
+
+      // Clear editing state
       setEditingItem(null);
     } catch (error) {
       console.error('Error editing item:', error);
@@ -104,9 +111,68 @@ const AdminDashboard = () => {
 
       {/* Dashboard Section */}
       <div className="mb-4">
-        <h2 className="text-center mb-3  ">Admin Dashboard</h2>
+        <h2 className="text-center mb-3">Admin Dashboard</h2>
 
         {/* Form to Add a New Item */}
+
+        <div className="d-flex justify-content-center align-items-center vh-95 mb-4">
+          <Card className="mb-5 shadow-sm text-center" style={{ width: '30rem', height: 'auto' }}>
+            <Card.Body>
+              <Card.Title>Add New Item</Card.Title>
+              <Card.Text>
+                <form
+                  style={{ width: '100%', maxWidth: '30rem' }}
+                  onSubmit={handleAddItem}
+                >
+                  <div className="mb-3">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Title"
+                      value={newItem.title}
+                      onChange={(e) => setNewItem({ ...newItem, title: e.target.value })}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="number"
+                      className="form-control"
+                      placeholder="Price"
+                      value={newItem.price}
+                      onChange={(e) => setNewItem({ ...newItem, price: e.target.value })}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <textarea
+                      className="form-control"
+                      placeholder="Description"
+                      rows="3"
+                      value={newItem.description}
+                      onChange={(e) => setNewItem({ ...newItem, description: e.target.value })}
+                      required
+                    ></textarea>
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Image URL"
+                      value={newItem.image}
+                      onChange={(e) => setNewItem({ ...newItem, image: e.target.value })}
+                      required
+                    />
+                  </div>
+                  <button type="submit" className="btn btn-primary w-100 mt-4">
+                    Add Item
+                  </button>
+                </form>
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </div>
+
 
 
  <div className="d-flex justify-content-center align-items-center vh-95 mb-4"> 
@@ -171,6 +237,7 @@ const AdminDashboard = () => {
 
 
 
+
         {/* Items Display */}
         <div className="row g-4">
           {items.map((item) => (
@@ -195,7 +262,7 @@ const AdminDashboard = () => {
                         type="number"
                         className="form-control mb-2"
                         defaultValue={item.price}
-                        onChange={(e) => setEditingItem({ ...editingItem, price: e.target.value })}
+                        onChange={(e) => setEditingItem({ ...editingItem, price: parseFloat(e.target.value) })}
                       />
                       <textarea
                         className="form-control mb-2"
