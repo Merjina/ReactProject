@@ -12,8 +12,8 @@ function Login() {
         { username: 'user5@gmail.com', password: 'pass5', role: 'user' },
     ];
 
-    const [username, setUsername] = useState('admin@gmail.com');
-    const [password, setPassword] = useState('password');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const navigate = useNavigate();
@@ -42,6 +42,12 @@ function Login() {
                     navigate('/', { state: { username ,password} }); // to home page for regular users
                 }
             }, 1000);
+
+          setSuccess('Login successful!');
+          setTimeout(() => {
+            navigate('/admin' ,{ state: { username, password } }); // to home page
+            console.log(navigate);
+          }, 1000); //
         } else {
             setError('Invalid username or password');
         }
@@ -76,7 +82,7 @@ function Login() {
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
-                                <span className='text-primary' style={{ cursor: 'pointer' }}>Forgot Password?</span>
+                                <button className='btn ' style={{ cursor: 'pointer' }}>Forgot Password?</button>
                             </div>
                             <Button 
                                 type="submit" 
@@ -87,7 +93,7 @@ function Login() {
                             </Button>
                         </form>
                     </Card.Text>
-                    <span>Not a Member? <span className='text-primary' style={{ cursor: 'pointer' }}>Signup now</span></span>
+                    <span>Not a Member? <button className='btn btn-primary p-1' style={{ cursor: 'pointer' }} onClick={()=>navigate('/Signup')}>Signup now</button></span>
                 </Card.Body>
             </Card>
         </div>
