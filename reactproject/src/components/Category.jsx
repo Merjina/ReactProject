@@ -44,14 +44,16 @@ const Category = () => {
           filteredProducts.map((product) => (
             <div key={product.id} className="col-12 col-md-4 mb-4">
               <div className="card h-100">
-                <img src={product.image} className="card-img-top" alt={product.title} style={{ height: '200px', objectFit: 'contain' }} />
+                <img src={product.image} className="card-img-top " alt={product.title} style={{ height: '230px', objectFit: 'contain',padding:'15px' }} />
                 <div className="card-body">
                   <h5 className="card-title text-truncate">{product.title}</h5>
                   <p className="card-text text-muted">
                     {product.description.length > 100 ? product.description.slice(0, 100) + '...' : product.description}
                   </p>
                   <p className="fw-bold">Fr. {product.price.toFixed(2)}</p>
-                  <button className="btn btn-warning">Add to Cart</button>
+                  <div className='d-flex align-items-center justify-content-center'>
+                  <button className="btn btn-warning  w-100">Add to Cart</button>
+                  </div>
                 </div>
               </div>
             </div>

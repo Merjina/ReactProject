@@ -115,7 +115,7 @@ const AdminDashboard = () => {
 
         {/* Form to Add a New Item */}
 
-        <div className="d-flex justify-content-center align-items-center vh-95 mb-4">
+        {/* <div className="d-flex justify-content-center align-items-center vh-95 mb-4">
           <Card className="mb-5 shadow-sm text-center" style={{ width: '30rem', height: 'auto' }}>
             <Card.Body>
               <Card.Title>Add New Item</Card.Title>
@@ -171,12 +171,12 @@ const AdminDashboard = () => {
               </Card.Text>
             </Card.Body>
           </Card>
-        </div>
+        </div> */}
 
 
 
  <div className="d-flex justify-content-center align-items-center vh-95 mb-4"> 
-<Card className='mb-5 shadow-sm text-center' style={{ width: '30rem', height: '31rem' }}>
+<Card className='mb-5 shadow-sm text-center' style={{ width: '30rem', height: '30rem' }}>
    <Card.Body>
      <Card.Title className='mb-3'>Add New Item</Card.Title>
         <Card.Text>
@@ -247,7 +247,7 @@ const AdminDashboard = () => {
                   src={item.image}
                   className="card-img-top"
                   alt={item.title}
-                  style={{ objectFit: 'contain', height: '200px' }}
+                  style={{ objectFit: 'contain', height: '235px', padding:'15px' }}
                 />
                 <div className="card-body">
                   {editingItem?.id === item.id ? (
@@ -285,15 +285,15 @@ const AdminDashboard = () => {
                         {item.description}
                       </p>
                       <p className="text-primary fw-bold">${item.price.toFixed(2)}</p>
-                      <div className="d-flex justify-content-bewteen">
+                      <div className="d-flex justify-content-between align-items-center">
                         <button
-                          className="btn btn-warning "
+                          className="btn btn-warning p-2 w-100 "
                           onClick={() => setEditingItem(item)}
                         >
                           Edit
                         </button>
                         <button
-                          className="btn btn-danger "
+                          className="btn btn-danger p-2 w-100  "
                           onClick={() => handleDeleteItem(item.id)}
                         >
                           Delete
